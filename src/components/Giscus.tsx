@@ -6,10 +6,10 @@ function getGiscusTheme() {
 function createGiscus() {
   const giscusAttributes = {
     src: "https://giscus.app/client.js",
-    "data-repo": "mathpn/mathpn.github.io",
-    "data-repo-id": "R_kgDOJdSgGg",
+    "data-repo": "mathpn/blog-parlor",
+    "data-repo-id": "R_kgDOO4OEMQ",
     "data-category": "General",
-    "data-category-id": "DIC_kwDOJdSgGs4ClWOt",
+    "data-category-id": "DIC_kwDOO4OEMc4CrNDZ",
     "data-mapping": "pathname",
     "data-strict": "0",
     "data-reactions-enabled": "1",
@@ -24,7 +24,7 @@ function createGiscus() {
 
   const giscusScript = document.createElement("script");
   Object.entries(giscusAttributes).forEach(([key, value]) =>
-    giscusScript.setAttribute(key, value)
+    giscusScript.setAttribute(key, value),
   );
 
   document.querySelector("main")?.appendChild(giscusScript);
