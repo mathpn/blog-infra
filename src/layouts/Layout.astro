@@ -1,6 +1,7 @@
 ---
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
+import { ClientRouter, fade } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -139,15 +140,16 @@ const structuredData = {
       )
     }
 
-    <script is:inline src="/toggle-theme.js" async></script>
+    <script is:inline src="/toggle-theme.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
       integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
       crossorigin="anonymous"
     />
+    <ClientRouter fallback="swap" />
   </head>
-  <body>
+  <body transition:animate={fade({ duration: "0.1s" })}>
     <slot />
   </body>
 </html>

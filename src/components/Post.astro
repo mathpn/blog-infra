@@ -20,14 +20,10 @@ const { Content } = await render(post);
 {
   href ? (
     <a href={href}>
-      <h1 transition:name={slugifyStr(title)} class="post-title">
-        {title}
-      </h1>
+      <h1 class="post-title">{title}</h1>
     </a>
   ) : (
-    <h1 transition:name={slugifyStr(title)} class="post-title">
-      {title}
-    </h1>
+    <h1 class="post-title">{title}</h1>
   )
 }
 
