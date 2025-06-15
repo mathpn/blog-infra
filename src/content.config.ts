@@ -20,6 +20,7 @@ const posts = defineCollection({
         .or(z.string())
         .optional(),
       description: z.string(),
+      coverImage: z.string().optional(),
       canonicalURL: z.string().optional(),
       editPost: z
         .object({
@@ -50,6 +51,7 @@ const notes = defineCollection({
         .or(z.string())
         .optional(),
       description: z.string().optional(),
+      coverImage: z.string().optional(),
       canonicalURL: z.string().optional(),
       editPost: z
         .object({

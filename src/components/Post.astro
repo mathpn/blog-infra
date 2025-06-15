@@ -12,7 +12,8 @@ export interface Props {
 
 const { post, href } = Astro.props;
 
-const { title, editPost, pubDatetime, modDatetime, tags } = post.data;
+const { title, editPost, pubDatetime, modDatetime, tags, coverImage } =
+  post.data;
 
 const { Content } = await render(post);
 ---
@@ -40,6 +41,18 @@ const { Content } = await render(post);
   id="article"
   class="prose md:prose-lg lg:prose-xl mx-auto mt-8 max-w-3xl lg:max-w-4xl"
 >
+  {
+    coverImage && (
+      <div class="cover-image-container">
+        <img
+          src={coverImage}
+          alt={`Cover image for ${title}`}
+          class="cover-image"
+          loading="eager"
+        />
+      </div>
+    )
+  }
   <Content />
 </article>
 
@@ -61,6 +74,43 @@ const { Content } = await render(post);
   }
   .post-title {
     @apply text-2xl sm:text-3xl lg:text-4xl font-semibold text-skin-accent;
+  }
+
+  .cover-image-container {
+    float: right;
+    width: 400px;
+    margin: 0 0 1rem 1rem;
+  }
+
+  .cover-image {
+    border: none;
+    width: 100%;
+    height: auto;
+    image-rendering: smooth;
+  }
+
+  /* Invert cover image in light theme */
+  html[data-theme="light"] .cover-image {
+    filter: invert(1);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 1024px) {
+    .cover-image-container {
+      width: 300px;
+      margin: 0 0 1rem 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cover-image-container {
+      float: none;
+      width: 100%;
+      margin: 0 auto 1rem auto;
+    }
+    .cover-image {
+      image-rendering: pixelated;
+    }
   }
 </style>
 
