@@ -18,7 +18,7 @@
     "@astrojs/prism": "^3.3.0",
     "@astrojs/rss": "^4.0.12",
     "@resvg/resvg-js": "^2.6.2",
-    "astro": "^5.9.1",
+    "astro": "^5.10.1",
     "fuse.js": "^7.0.0",
     "hyphenopoly": "^6.0.0",
     "katex": "^0.16.19",
